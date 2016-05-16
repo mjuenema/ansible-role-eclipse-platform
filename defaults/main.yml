@@ -1,0 +1,4 @@
+---
+# defaults file for ansible-role-eclipse
+
+eclipse_platform_release: 4.5.2

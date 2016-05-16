@@ -1,0 +1,13 @@
+---
+
+# Task for Red Hat and compatible distributions
+#
+
+- name: Install pre-requisites
+  yum: name={{ item }}
+  with_items:
+    - java
+    - tar
+    - gtk2
+    - libXtst
+    - '@Fonts'

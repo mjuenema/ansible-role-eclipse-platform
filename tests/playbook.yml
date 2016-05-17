@@ -1,6 +1,5 @@
 ---
 - hosts: localhost
   remote_user: root
-  connection: local
   roles:
     - ansible_role_eclipse_platform

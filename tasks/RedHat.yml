@@ -3,11 +3,6 @@
 # Task for Red Hat and compatible distributions
 #
 
-- name: Install pre-requisites
+- name: Install pre-requisites for Eclipse Platform
   yum: name={{ item }}
-  with_items:
-    - java
-    - tar
-    - gtk2
-    - libXtst
-    - '@Fonts'
+  with_items: "{{ eclipse_platform_dependencies }}"

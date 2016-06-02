@@ -1,3 +1,10 @@
 ---
 
 # Settings for Red Hat Linux and compatible distributions
+
+eclipse_platform_dependencies:
+  - java
+  - tar
+  - gtk2
+  - libXtst
+  - '@Fonts'

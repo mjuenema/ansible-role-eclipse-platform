@@ -3,31 +3,45 @@
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
-- include: RedHat.yml
-  when: ansible_os_family == 'RedHat'
+- name: Show Eclipse download URL
+  debug: msg="{{eclipse_download_url[item.0][item.1]}}"
+  with_together: 
+  - "{{eclipse_release}}"
+  - "{{ansible_architecture}}"
 
-- include: Suse.yml
-  when: ansible_os_family == 'Suse'
-
-- include: Debian.yml
-  when: ansible_os_family == 'Debian'
-
-- include: Solaris.yml
-  when: ansible_os_family == 'Solaris'
+- name: Include OS specific tasks
+  include: "{{ ansible_os_family }}.yml"
 
 - name: Download Eclipse
-  get_url: url={{ eclipse_platform_url_452_64 }}
-           dest=/opt/eclipse-platform-{{ eclipse_platform_release }}-{{ ansible_architecture}}.tar.gz
-           checksum=sha1:669cac5ae2424514634fbd36394f9b41a443b9b6
-  when: (eclipse_platform_release == "4.5.2") and (ansible_architecture == "x86_64")
+  get_url: url="{{eclipse_download_url[item.0][item.1]}}"
+           dest=/opt/eclipse-platform-{{eclipse_release}}-{{ansible_architecture}}.tar.gz
+           timeout=30
+  with_together: 
+  - "{{eclipse_release}}"
+  - "{{ansible_architecture}}"
+
+- name: Create /opt/eclipse-RELEASE firectory
+  file: path="/opt/eclipse-{{eclipse_release}}"
+        state=directory
 
 - name: Extract Eclipse 
-  unarchive: src=/opt/eclipse-platform-{{ eclipse_platform_release }}-{{ ansible_architecture}}.tar.gz
-             dest=/opt
-             creates=/opt/eclipse/eclipse
+  unarchive: src=/opt/eclipse-platform-{{eclipse_release }}-{{ansible_architecture}}.tar.gz
+             dest="/opt/eclipse-{{eclipse_release}}"
+             copy=no
+             creates=/opt/eclipse-{{eclipse_release}}/eclipse/eclipse
+
+- name: Create /usr/local/bin/eclipse-RELEASE symlink
+  file: src=/opt/eclipse-{{eclipse_release}}/eclipse/eclipse
+        dest=/usr/local/bin/eclipse-{{eclipse_release}}
+        state=link
 
 - name: Create /usr/local/bin/eclipse symlink
-  file: src=/opt/eclipse/eclipse
+  file: src=/usr/local/bin/eclipse-{{eclipse_release}}
         dest=/usr/local/bin/eclipse
         state=link
+
+- name: Install AWS Toolkit
+  script: "{{role_path}}/scripts/install_aws_toolkit"
+
+
 

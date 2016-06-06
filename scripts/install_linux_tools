@@ -36,3 +36,5 @@ org.eclipse.linuxtools.rpm.feature.group,\
 org.eclipse.linuxtools.systemtap.feature.group,\
 org.eclipse.linuxtools.valgrind.feature.group,\
 org.eclipse.linuxtools.valgrind.remote.feature.group
+
+touch /opt/eclipse-${RELEASE_LONG}/.linux_tools

@@ -48,3 +48,5 @@ org.eclipse.cdt.visualizer.feature.group,\
 org.eclipse.cdt.xlc.feature.feature.group,\
 org.eclipse.cdt.xlc.sdk.feature.group
 
+touch /opt/eclipse-${RELEASE_LONG}/.cdt
+

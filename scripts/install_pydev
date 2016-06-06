@@ -16,3 +16,5 @@ http://pydev.org/updates \
   -installIUs \
 org.python.pydev.feature.feature.group,\
 org.python.pydev.mylyn.feature.feature.group
+
+touch /opt/eclipse-${RELEASE_LONG}/.pydev

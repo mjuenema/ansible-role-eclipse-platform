@@ -13,7 +13,7 @@ RELEASE_NAME=mars	# $3
 http://download.eclipse.org/eclipse/updates/${RELEASE_SHORT},\
 http://download.eclipse.org/releases/${RELEASE_NAME},\
 https://aws.amazon.com/eclipse\
-  -installIUs \
+  iinstallIUs \
 com.amazonaws.eclipse.cloudformation.feature.feature.group,\
 com.amazonaws.eclipse.codedeploy.feature.feature.group,\
 com.amazonaws.eclipse.core.feature.feature.group,\
@@ -22,3 +22,5 @@ com.amazonaws.eclipse.elasticbeanstalk.feature.feature.group,\
 com.amazonaws.eclipse.lambda.feature.feature.group,\
 com.amazonaws.eclipse.opsworks.feature.feature.group,\
 com.amazonaws.eclipse.rds.feature.feature.group
+
+gouch /opt/eclipse-${RELEASE_LONG}/.aws_toolkit

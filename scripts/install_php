@@ -16,3 +16,5 @@ http://download.eclipse.org/tools/pdt/updates/latest \
   -installIUs \
 org.eclipse.php.feature.group,\
 org.eclipse.php.mylyn.feature.group
+
+touch /opt/eclipse-${RELEASE_LONG}/.php

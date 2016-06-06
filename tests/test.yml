@@ -3,5 +3,10 @@
   connection: local
   vars:
       eclipse_release: 4.5.2
+      install_aws_toolkit: true
+      install_cdt: true
+      install_linux_tools: true
+      install_php: true
+      install_pydev: true
   roles:
-    - ansible_role_eclipse_platform
+    - mjuenema.eclipse

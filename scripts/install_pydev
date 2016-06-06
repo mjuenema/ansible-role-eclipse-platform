@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Install AWS Eclipse Toolkit
+#
+# TODO: Pass command lien arguments
+
+RELEASE_LONG=4.5.2	# $1
+RELEASE_SHORT=4.5	# $2
+RELEASE_NAME=mars	# $3
+
+
+/usr/local/bin/eclipse-${RELEASE_LONG} -clean -purgeHistory -nosplash -consolelog -application org.eclipse.equinox.p2.director -repository \
+http://download.eclipse.org/eclipse/updates/${RELEASE_SHORT},\
+http://download.eclipse.org/releases/${RELEASE_NAME},\
+http://pydev.org/updates \
+  -installIUs \
+org.python.pydev.feature.feature.group,\
+org.python.pydev.mylyn.feature.feature.group

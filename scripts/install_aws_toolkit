@@ -9,10 +9,11 @@ RELEASE_SHORT=4.5	# $2
 RELEASE_NAME=mars	# $3
 
 
-/usr/local/bin/eclipse-${RELEASE_LONG} -clean -purgeHistory -nosplash -consolelog -application org.eclipse.equinox.p2.director -repository https://aws.amazon.com/eclipse,\
+/usr/local/bin/eclipse-${RELEASE_LONG} -clean -purgeHistory -nosplash -consolelog -application org.eclipse.equinox.p2.director -repository \
 http://download.eclipse.org/eclipse/updates/${RELEASE_SHORT},\
-http://download.eclipse.org/releases/${RELEASE_NAME} \
-    -installIUs \
+http://download.eclipse.org/releases/${RELEASE_NAME},\
+https://aws.amazon.com/eclipse\
+  -installIUs \
 com.amazonaws.eclipse.cloudformation.feature.feature.group,\
 com.amazonaws.eclipse.codedeploy.feature.feature.group,\
 com.amazonaws.eclipse.core.feature.feature.group,\

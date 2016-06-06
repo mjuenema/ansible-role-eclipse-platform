@@ -1,0 +1,50 @@
+#!/bin/sh
+#
+# Install AWS Eclipse Toolkit
+#
+# TODO: Pass command lien arguments
+
+RELEASE_LONG=4.5.2	# $1
+RELEASE_SHORT=4.5	# $2
+RELEASE_NAME=mars	# $3
+RELEASE_URL=http://download.eclipse.org/tools/cdt/releases/8.8.1	# $4
+
+
+/usr/local/bin/eclipse-${RELEASE_LONG} -clean -purgeHistory -nosplash -consolelog -application org.eclipse.equinox.p2.director -repository \
+http://download.eclipse.org/eclipse/updates/${RELEASE_SHORT},\
+http://download.eclipse.org/releases/${RELEASE_NAME},\
+${RELEASE_URL} \
+  -installIUs \
+org.eclipse.cdt.arduino.feature.group,\
+org.eclipse.cdt.autotools.feature.group,\
+org.eclipse.cdt.build.crossgcc.feature.group,\
+org.eclipse.cdt.bupc.feature.group,\
+org.eclipse.cdt.core.lrparser.feature.feature.group,\
+org.eclipse.cdt.core.lrparser.sdk.feature.group,\
+org.eclipse.cdt.core.parser.upc.feature.feature.group,\
+org.eclipse.cdt.core.parser.upc.sdk.feature.group,\
+org.eclipse.cdt.debug.gdbjtag.feature.group,\
+org.eclipse.cdt.debug.standalone.feature.group,\
+org.eclipse.cdt.debug.ui.memory.feature.group,\
+org.eclipse.cdt.docker.launcher.feature.group,\
+org.eclipse.cdt.examples.dsf.feature.group,\
+org.eclipse.cdt.feature.group,\
+org.eclipse.cdt.gdb.feature.group,\
+org.eclipse.cdt.gnu.build.feature.group,\
+org.eclipse.cdt.gnu.debug.feature.group,\
+org.eclipse.cdt.gnu.dsf.feature.group,\
+org.eclipse.cdt.gnu.multicorevisualizer.feature.group,\
+org.eclipse.cdt.launch.remote.feature.group,\
+org.eclipse.cdt.managedbuilder.llvm.feature.group,\
+org.eclipse.cdt.msw.feature.group,\
+org.eclipse.cdt.native.feature.group,\
+org.eclipse.cdt.platform.feature.group,\
+org.eclipse.cdt.qt.feature.group,\
+org.eclipse.cdt.remote.feature.group,\
+org.eclipse.cdt.sdk.feature.group,\
+org.eclipse.cdt.testsrunner.feature.feature.group,\
+org.eclipse.cdt.util.feature.group,\
+org.eclipse.cdt.visualizer.feature.group,\
+org.eclipse.cdt.xlc.feature.feature.group,\
+org.eclipse.cdt.xlc.sdk.feature.group
+

@@ -43,25 +43,25 @@
 - name: Install AWS Toolkit
   script: scripts/install_aws_toolkit
           creates="/opt/eclipse-{{eclipse_release}}/.aws_toolkit"
-  when: install_aws_toolkit
+  when: eclipse_install_aws_toolkit
 
 - name: Install CDT
   script: scripts/install_cdt
           creates="/opt/eclipse-{{eclipse_release}}/.cdt"
-  when: install_cdt
+  when: eclipse_install_cdt
 
 - name: Install Linux Tools
   script: scripts/install_linux_tools
           creates="/opt/eclipse-{{eclipse_release}}/.linux_tools"
-  when: install_linux_tools
+  when: eclipse_install_linux_tools
 
 - name: Install PHP
   script: scripts/install_php
           creates="/opt/eclipse-{{eclipse_release}}/.php"
-  when: install_php
+  when: eclipse_install_php
 
 - name: Install PyDev
   script: scripts/install_pydev
           creates="/opt/eclipse-{{eclipse_release}}/.pydev"
-  when: install_pydev
+  when: eclipse_install_pydev
 

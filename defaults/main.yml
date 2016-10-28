@@ -2,9 +2,8 @@
 # defaults file for ansible-role-eclipse
 
 eclipse_platform_release: 4.5.2
-
-install_aws_toolkit: false
-install_cdt: false
-install_linux_tools: false
-install_php: false
-install_pydev: false
+eclipse_install_aws_toolkit: false
+eclipse_install_cdt: false
+eclipse_install_linux_tools: false
+eclipse_install_php: false
+eclipse_install_pydev: false
